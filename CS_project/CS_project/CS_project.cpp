@@ -1,20 +1,163 @@
-// CS_project.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include<string>
+using namespace std;
 
-int main()
-{
-    std::cout << "Hello World!\n";
+int comm_lab() {
+	string in, first, rest;
+	int split, length_room = 0, width_room = 0;
+	cout<<"Enter val: ";
+	getline(cin, in);
+	split  = in.find(" ");
+	rest = in.substr(split, sizeof(in));
+	first = in.substr(0, split);
+	
+	if (first=="look")
+	{
+		if (rest==" up")
+		{
+			cout<<1;
+		}
+		else if(rest == " down")
+		{
+			cout;
+		}
+		else if (rest==" left")
+		{
+			cout;
+		}
+		else if (rest == " right") 
+		{
+			cout;
+		}
+	}
+
+	if (first == "walk")
+	{
+		if (rest == " forward")
+		{
+			cout;
+			length_room+=1;
+			cout << length_room;
+		}
+		else if (rest == " back")
+		{
+			cout<<0;
+			length_room--;
+		}
+		else if (rest == " right")
+		{
+			cout<<2;
+			width_room++;
+			if (width_room>2)
+			{
+				cout << "You are at the edge of the room.";
+				width_room--;
+			}
+		}
+		else if (rest == " left")
+		{
+			cout;
+			width_room--;
+		}
+	}
+
+	if (length_room>2)
+	{
+		return false;
+	}
+	else return true;
+
+
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+
+
+
+
+int main()
+{	
+	
+	bool comms_lab = true;
+	while (1)
+	{
+		cout;
+		while(comms_lab){
+			comm_lab();
+		}
+		break;
+
+		
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
