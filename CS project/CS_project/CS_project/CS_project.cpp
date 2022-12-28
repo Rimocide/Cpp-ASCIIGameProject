@@ -24,43 +24,61 @@ int comm_lab() {
 	rest = in.substr(split, sizeof(in));
 	first = in.substr(0, split);
 	
-	if (first=="look")
+	if (first == "look")
 	{
-		if (rest==" up")
+		if (rest == " up")
 		{
-			cout<<1;
+			cout << "You countless wires snaking their way across the roof of this lab.\n";
 		}
-		else if(rest == " down")
+		else if (rest == " down")
 		{
-			cout;
+			cout << "The floor consists of white metal panels, your shirt is crumpled from lying on the floor.\n";
 		}
-		else if (rest==" left")
+		else if (rest == " left")
 		{
-			cout;
+			cout << "There are monitors crowding the workspace table,";
+			cout << "a notice board behind the table has a small happy birthday note for your crewmate\n";
 		}
-		else if (rest == " right") 
+		else if (rest == " right")
 		{
-			cout;
+			cout << "There are tall humming computer units at that end of the room,";
+			cout << "these house the ships mainframe\n";
 		}
+	
 	}
+
 
 	if (first == "walk")
 	{
 		if (rest == " forward")
 		{
-			cout;
+			if (length_room<1)
+			{
+				cout << "You stand closer to the door to the rec room, there is a small clock next to the door.";
+				cout << "You cannot read the time\n";
+			}
+			
 			length_room+=1;
-			cout << length_room;
 		}
 		else if (rest == " back")
 		{
+			if (length_room==1)
+			{
+				cout << "You stand closer to the door to the samples testing lab\n";
+			}
 			cout<<0;
 			length_room--;
 		}
 		else if (rest == " right")
 		{
+			width_room += 1;
+			if (width_room==1)
+			{
+				cout << "You stand before the computer housing units,";
+				cout << "There are sparks flying from one of them.\n";
+			}
 			
-			width_room+=1;
+			
 			if (width_room>1)
 			{
 				cout << "You are at the edge of the room.\n";
@@ -69,8 +87,13 @@ int comm_lab() {
 		}
 		else if (rest == " left")
 		{
-			cout;
 			width_room--;
+			if (width_room==-1)
+			{
+				cout << "You see your reflection in the blank dark screens of the computer.\n";
+				cout << "The note on the wall stares questioningly at you. Care to wish your friend a happy birthday ?\n";
+			}
+			
 			if (width_room<-1)
 			{
 				cout << "You are at the edge of the room.\n";
@@ -80,7 +103,7 @@ int comm_lab() {
 
 	}
 
-	if (length_room>1 or length_room<-1)
+	if (length_room>1 or length_room<0)
 	{
 		return false;
 	}
@@ -117,7 +140,7 @@ int main()
 
 
 
-	cout <<file.tellg()<< endl<<endl;
+	cout << endl<<endl;
 
 	
 
